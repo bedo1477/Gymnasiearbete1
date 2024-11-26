@@ -1,70 +1,36 @@
-/* styles.css */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #eaeaea; /* Change the background color */
-    color: #333;
-    margin: 0;
-    padding: 0;
-    display: flex; /* Use flexbox for centering */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    height: 100vh; /* Full height to center vertically */
-}
-
-.container {
-    width: 90%;
-    max-width: 600px;
-    background-color: #581717; /* Background color of the container */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center; /* Center text inside the container */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 h1 {
-    margin-bottom: 20px;
-    color: #fff; /* Change header color for better visibility */
+  text-align: center;
+  margin-top: 20px;
+  font-size: 2.5rem;
 }
 
-label, input {
-    display: block;
-    width: 100%;
-    margin-bottom: 10px;
-    font-size: 16px;
-    color: #fff; /* Change label text color */
+.navbar {
+  display: reverse-flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #333;
+  padding: 30px 40px;
 }
 
-input[type="text"] {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
+.navbar a {
+  color: white;
+  text-decoration: none;
+  padding: 40px 15px;
+  font-size: 1rem;
 }
 
-button {
-    background-color: #28a745;
-    color: white;
-    padding: 10px;
-    border: none;
-    width: 100%;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
+.navbar a:hover {
+  background-color: #575757;
+  border-radius: 5px;
 }
 
-button:hover {
-    background-color: #218838;
-}
-
-#recipe-results {
-    margin-top: 20px;
-    text-align: left; /* Keep text alignment left for recipe results */
-}
-
-.recipe-item {
-    padding: 10px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    margin-bottom: 10px;
-    border-radius: 5px;
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
 }

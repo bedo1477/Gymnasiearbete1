@@ -107,3 +107,53 @@ h1 {
   background-color: #555;
   color: #fff;
 }
+
+.menu-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 15px;
+    cursor: pointer;
+    overflow: hidden; /* Ensures sliding images don't overflow the container */
+    position: relative; /* Needed for the sliding effect */
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.menu-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Container for images */
+.image-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+/* Images in the container */
+.image-container img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease-in-out; /* Smooth slide-up effect */
+}
+
+/* Slide up effect on hover */
+.menu-item:hover .image-container img {
+    transform: translateY(-10%);
+}
+
+/* Text styling */
+.menu-item h2 {
+    font-size: 18px;
+    margin-top: 10px;
+    color: #333;
+    transition: color 0.3s ease-in-out;
+}
+
+.menu-item:hover h2 {
+    color: #555;
+}
+

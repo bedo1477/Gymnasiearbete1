@@ -157,3 +157,125 @@ h1 {
     color: #555;
 }
 
+
+
+
+
+
+Bedigs kod 
+
+
+
+
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #be9191;
+  }
+  
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 30px 20px;
+    text-align: left;
+  }
+  
+  
+  
+  
+  .navbar nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 40px 15px;
+    font-size: 1rem;
+    display: reverse-flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 30px 40px;
+    background-color: #333;
+  }
+  
+  
+  .navbar nav a:hover {
+  border-radius: 10px;
+  background-color: #575757;
+  padding: 40px 30px;
+  }
+  
+  
+  h1 {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 4rem;
+    color: #270822;
+  }
+  
+  /* Menycontainer */
+  .menu-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Fyra kolumner */
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Menyobjekt */
+  .menu-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 15px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .menu-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .menu-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .menu-item h2 {
+    font-size: 18px;
+    margin-top: 10px;
+    color: #333;
+  }
+  
+  /* Paginering */
+  .pagination {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  .page-number {
+    display: inline-block;
+    margin: 0 5px;
+    padding: 10px 15px;
+    background-color: #ddd;
+    color: #333;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .page-number:hover {
+    background-color: #bbb;
+  }
+  
+  .page-number.active {
+    background-color: #555;
+    color: #fff;
+  }

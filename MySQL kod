@@ -1,0 +1,78 @@
+CREATE DATABASE Recepthemsida;
+USE Recepthemsida;
+
+-- Tabell för användare
+CREATE TABLE Users (
+    UserID INT AUTO_INCREMENT PRIMARY KEY,
+    Username VARCHAR(50) NOT NULL UNIQUE,
+    Email VARCHAR(100) NOT NULL UNIQUE,
+    PasswordHash VARCHAR(255) NOT NULL,
+    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Tabell för recept
+CREATE TABLE Recipes (
+    RecipeID INT AUTO_INCREMENT PRIMARY KEY,
+    Title VARCHAR(100) NOT NULL,
+    Description TEXT,
+    Instructions TEXT NOT NULL,
+    CreatedBy INT NOT NULL,
+    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (CreatedBy) REFERENCES Users(UserID) ON DELETE CASCADE
+);
+
+-- Tabell för ingredienser
+CREATE TABLE Ingredients (
+    IngredientID INT AUTO_INCREMENT PRIMARY KEY,
+    Name VARCHAR(100) NOT NULL UNIQUE
+);
+
+-- Tabell för att koppla recept till ingredienser
+CREATE TABLE RecipeIngredients (
+    RecipeIngredientID INT AUTO_INCREMENT PRIMARY KEY,
+    RecipeID INT NOT NULL,
+    IngredientID INT NOT NULL,
+    Quantity VARCHAR(50),
+    FOREIGN KEY (RecipeID) REFERENCES Recipes(RecipeID) ON DELETE CASCADE,
+    FOREIGN KEY (IngredientID) REFERENCES Ingredients(IngredientID) ON DELETE CASCADE
+);
+
+-- Tabell för receptkategorier
+CREATE TABLE Categories (
+    CategoryID INT AUTO_INCREMENT PRIMARY KEY,
+    Name VARCHAR(50) NOT NULL UNIQUE
+);
+
+-- Tabell för att koppla recept till kategorier
+CREATE TABLE RecipeCategories (
+    RecipeCategoryID INT AUTO_INCREMENT PRIMARY KEY,
+    RecipeID INT NOT NULL,
+    CategoryID INT NOT NULL,
+    FOREIGN KEY (RecipeID) REFERENCES Recipes(RecipeID) ON DELETE CASCADE,
+    FOREIGN KEY (CategoryID) REFERENCES Categories(CategoryID) ON DELETE CASCADE
+);
+
+-- Exempeldata
+-- Lägg till användare
+INSERT INTO Users (Username, Email, PasswordHash) 
+VALUES ('chef123', 'chef123@example.com', 'hashedpassword');
+
+-- Lägg till ingredienser
+INSERT INTO Ingredients (Name) 
+VALUES ('Salt'), ('Sugar'), ('Flour'), ('Butter');
+
+-- Lägg till kategorier
+INSERT INTO Categories (Name) 
+VALUES ('Dessert'), ('Main Course'), ('Appetizer');
+
+-- Lägg till ett recept
+INSERT INTO Recipes (Title, Description, Instructions, CreatedBy) 
+VALUES ('Pancakes', 'Simple pancake recipe', 'Mix all ingredients and fry in a pan.', 1);
+
+-- Koppla ingredienser till recept
+INSERT INTO RecipeIngredients (RecipeID, IngredientID, Quantity) 
+VALUES (1, 3, '2 cups'), (1, 4, '50g'), (1, 2, '1 tbsp');
+
+-- Koppla recept till en kategori
+INSERT INTO RecipeCategories (RecipeID, CategoryID) 
+VALUES (1, 1);
